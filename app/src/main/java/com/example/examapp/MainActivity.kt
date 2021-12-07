@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             replaceFragment(fragment!!)
             true
         }
-    bottomNavigationView.selectedItemId = R.id.about
+    bottomNavigationView.selectedItemId = R.id.game_roll
     }
 
     fun replaceFragment(fragment: Fragment) {
