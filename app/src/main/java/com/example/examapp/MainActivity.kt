@@ -7,6 +7,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 // Начало - 32 минута
 // 1:09
+// 1:35
+
+private const val LAST_SELECTED_ITEM = "item"
 
 class MainActivity : AppCompatActivity() {
     lateinit var bottomNavigationView: BottomNavigationView
@@ -30,13 +33,24 @@ class MainActivity : AppCompatActivity() {
             replaceFragment(fragment!!)
             true
         }
-    bottomNavigationView.selectedItemId = R.id.game_roll
+        bottomNavigationView.selectedItemId =
+            savedInstanceState?.getInt(
+                LAST_SELECTED_ITEM
+            ) ?: R.id.game_roll
     }
 
-    fun replaceFragment(fragment: Fragment) {
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(LAST_SELECTED_ITEM, bottomNavigationView.selectedItemId)
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
-    }
+
+
+}
+
 }
