@@ -13,8 +13,7 @@ class MyDialogFragment : DialogFragment() {
             val builder = AlertDialog.Builder(it)
             builder.setTitle("Важное сообщение!")
                 .setMessage("Вы выиграли!")
-                //.setCancelable(false)
-                //.setIcon(R.drawable.hungrycat)
+                .setCancelable(false)
                 .setPositiveButton("Ура!") { dialog, id ->
                     dialog.cancel()
                 }

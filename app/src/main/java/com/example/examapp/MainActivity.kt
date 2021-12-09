@@ -5,15 +5,12 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-// Начало - 32 минута
-// 1:09
-// 1:35
-
 private const val LAST_SELECTED_ITEM = "item"
 
 class MainActivity : AppCompatActivity() {
     lateinit var bottomNavigationView: BottomNavigationView
 
+    // Смена фрагментов в приложении
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -38,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 LAST_SELECTED_ITEM
             ) ?: R.id.game_roll
     }
-
+    // Восстановление фрагмента
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt(LAST_SELECTED_ITEM, bottomNavigationView.selectedItemId)

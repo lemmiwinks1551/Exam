@@ -1,17 +1,16 @@
 package com.example.examapp
 
+import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.view.SupportActionModeWrapper
-import androidx.appcompat.view.SupportMenuInflater
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import kotlin.random.Random
+
 
 class MainFragment : Fragment() {
 
@@ -40,15 +39,15 @@ class MainFragment : Fragment() {
             var randomNumCenter = Random.nextInt(0, 10)
             var randomNumRight = Random.nextInt(0, 10)
 
+            outputLeft.text = randomNumLeft.toString()
+            outputRight.text = randomNumRight.toString()
+            outputCentr.text = randomNumCenter.toString()
+
             if (randomNumLeft == randomNumCenter && randomNumRight == randomNumCenter) {
                 dialog.show((activity as FragmentActivity).supportFragmentManager, null)
-            } else {
-                outputLeft.text = randomNumLeft.toString()
-                outputRight.text = randomNumRight.toString()
-                outputCentr.text = randomNumCenter.toString()
+                index = 0
             }
 
-            dialog.show((activity as FragmentActivity).supportFragmentManager, null)
             index++
             counter.text = "Попытка № " + index.toString()
 
